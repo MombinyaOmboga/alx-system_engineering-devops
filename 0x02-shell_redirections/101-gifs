@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Store the result of the find command in a variable
+files=$(find . -type f -iname "*.gif" | sort -f -b)
+
+# Loop through the files and remove the extension
+for file in $files; do
+  filename=${file%.*}
+  filename=${filename##*/}
+  echo "$filename"
+done
+
+# Add a new line at the end of the listing
+echo ""
